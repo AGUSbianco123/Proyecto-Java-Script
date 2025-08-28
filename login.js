@@ -15,9 +15,30 @@ function goBack() {
   document.getElementById("choiceSection").classList.remove("hidden");
 }
 
+// Array para simular usuarios registrados
+const usuariosRegistrados = [];
+
 // Simulación de login
 document.getElementById("loginSection").addEventListener("submit", e => {
   e.preventDefault();
+  const usuario = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPass").value.trim();
+  if (usuario === "" || password === "") {
+    alert("Por favor, completa todos los campos.");
+    return;
+  }
+  // Verificar si el usuario está registrado
+  const usuarioEncontrado = usuariosRegistrados.find(u => u.usuario === usuario && u.password === password);
+  if (!usuarioEncontrado) {
+    if (usuariosRegistrados.some(u => u.usuario === usuario)) {
+      alert("Contraseña incorrecta.");
+    } else {
+      alert("Usuario no registrado. Por favor, regístrate.");
+      goBack();
+      showForm("register");
+    }
+    return;
+  }
   alert("Login exitoso ✅");
   window.location.href = "../index.html";
 });
@@ -25,6 +46,21 @@ document.getElementById("loginSection").addEventListener("submit", e => {
 // Simulación de registro
 document.getElementById("registerSection").addEventListener("submit", e => {
   e.preventDefault();
-  alert("Usuario registrado correctamente 🎉");
-  goBack();
+  const usuario = document.getElementById("regEmail").value.trim();
+  const password = document.getElementById("regPass").value.trim();
+  if (usuario === "" || password === "") {
+    alert("Por favor, completa todos los campos.");
+    return;
+  }
+  // Verificar si el usuario ya está registrado
+  if (usuariosRegistrados.some(u => u.usuario === usuario)) {
+    alert("Usuario ya registrado. Por favor, inicia sesión.");
+    goBack();
+    showForm("login");
+    return;
+  }
+  usuariosRegistrados.push({ usuario, password });
+  alert("Registro exitoso ✅");
+  window.location.href = "../index.html";
 });
+// 
