@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Vehículos</title>
+  <link rel="stylesheet" href="ver-autos.css">
+</head>
+<body>
+  <header>
+        <div class="logo">
+            <img src="image.png" alt="Logo Concesionario">
+            <h1>Concesionario CAECE</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li id="btnLogin" class="requires hidden"><a href="login.html">Login/registro</a></li>
+                <li class="requires-login hidden"><a href="gestion-vehiculos.html">Vehículos</a></li>
+                <li class="requires-login hidden"><a href="gestion-clientes.html">Clientes</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-session hidden">
+            <span id="userInfo"></span>
+            <button id="btnLogout" class="btn-logout">Salir</button>
+        </div>
+
+    </header>
+
+    <main class="container">
+        <h2>Autos disponibles</h2>
+        <div id="vehiculosPublicos" class="cards-publicas">
+            <div class="loader"></div>
+        </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 Concesionario CAECE - Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="ver-autos.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>

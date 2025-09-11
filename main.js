@@ -2,58 +2,52 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Página principal del Concesionario cargada correctamente ✅");
 });
 
-// main.js
 (function () {
-  const isLoginPage = /login\.html$/i.test(location.pathname);
-
-  // Lectura robusta del usuario activo (soporta string o JSON)
+  // Lectura robusta del usuario activo
   function getUsuarioActivo() {
     const raw = localStorage.getItem("usuarioActivo");
     if (!raw) return null;
     try {
       const parsed = JSON.parse(raw);
-      // Si alguna vez lo guardaste como string y lo parsea bien, puede venir como "correo"
       if (typeof parsed === "string") return { email: parsed };
-      return parsed; // { email: "...", ... }
+      return parsed;
     } catch {
-      // Si no es JSON, es un string simple (correo)
       return { email: raw };
     }
   }
 
   const usuario = getUsuarioActivo();
 
-  // Reglas de navegación
-  if (!usuario && !isLoginPage) {
-    // No hay sesión y no estoy en login -> ir a login
-    location.href = "login.html";
-    return;
-  }
-
-  if (usuario && isLoginPage) {
-    // Ya hay sesión y estoy en login -> opcional: mandar al home
-    location.href = "index.html";
-    return;
-  }
-
-  // Rellenar bloque de sesión (si existe en el DOM)
-    document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const userSession = document.querySelector(".user-session");
     const userInfo = document.getElementById("userInfo");
     const btnLogout = document.getElementById("btnLogout");
+    const opcionesPrivadas = document.querySelectorAll(".requires-login");
+    const loginBtn = document.getElementById("btnLogin");
 
-    if (usuario && userInfo && userSession) {
+    if (usuario) {
+      // Mostrar sesión activa
+      if (userInfo && userSession) {
         userInfo.textContent = `Sesión activa: ${usuario.email}`;
-        userSession.classList.remove("hidden"); // mostrar bloque
-    } else if (userSession) {
-        userSession.classList.add("hidden"); // ocultar bloque
+        userSession.classList.remove("hidden");
+      }
+      // Mostrar opciones privadas
+      opcionesPrivadas.forEach(el => el.classList.remove("hidden"));
+      // Ocultar botón login
+      if (loginBtn) loginBtn.classList.add("hidden");
+    } else {
+      // Sin sesión
+      if (userSession) userSession.classList.add("hidden");
+      opcionesPrivadas.forEach(el => el.classList.add("hidden"));
+      if (loginBtn) loginBtn.classList.remove("hidden");
     }
 
+    // Logout
     if (btnLogout) {
-        btnLogout.addEventListener("click", () => {
+      btnLogout.addEventListener("click", () => {
         localStorage.removeItem("usuarioActivo");
-        location.href = "login.html";
-        });
+        location.href = "index.html"; // volver al home en estado público
+      });
     }
-    });
+  });
 })();
