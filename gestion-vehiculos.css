@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #000000, #b30000); /* negro → rojo */
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    background: #2a2a2a; /* gris oscuro */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #e90707; /* rojo para destacar */
+    letter-spacing: 1px;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 12px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+    color: #e90707;
+}
+
+nav a.active {
+    border-bottom: 2px solid #e90707;
+}
+
+main {
+  padding: 2rem;
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
+}
+
+/* ---------- CONTENEDOR PRINCIPAL ---------- */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  background: rgba(25, 25, 25, 0.95); /* gris casi negro */
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+
+/* ---------- SUBCONTENEDORES (secciones o cajas internas) ---------- */
+.section-box {
+  background: #2a2a2a; /* gris oscuro */
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+/* ---------- TITULOS ---------- */
+h1, h2 {
+  color: #e90707; /* rojo principal */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* ---------- PARRAFOS Y TEXTO ---------- */
+p, label, td, th {
+  color: #ddd; /* gris claro */
+}
+
+/* ---------- TABLA DENTRO DE CONTENEDOR ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table thead {
+  background: #e90707;
+  color: #fff;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #1a1a1a;
+}
+
+table tbody tr:nth-child(even) {
+  background: #2a2a2a;
+}
+
+table td {
+  color: #eee;
+}
+
+/* ---------- FORMULARIO DENTRO DE CONTENEDOR ---------- */
+form input, form select {
+  background: #1a1a1a;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+}
+
+form input:focus, form select:focus {
+  border-color: #e90707;
+  outline: none;
+}
+
+/* ---------- BOTONES ---------- */
+button, .btn {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: #e90707;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #b30000;
+}
+
+.btn-secondary {
+  background: #444;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #666;
+}
+
+footer {
+    background: #2a2a2a;
+    color: #bbb;
+    text-align: center;
+    padding: 18px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.5);
+}
+
+.user-session {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2a2a2a;
+  padding: 8px 14px;
+  border-radius: 8px;
+  margin-left: 12px;
+}
+
+#userInfo {
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-logout {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #e90707;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-logout:hover {
+  background: #b30000;
+}
+
+.hidden {
+  display: none !important;
+}

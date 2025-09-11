@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Vehículos</title>
+  <link rel="stylesheet" href="gestion-vehiculos.css">
+</head>
+<body>
+  <header>
+        <div class="logo">
+            <img src="image.png" alt="Logo Concesionario">
+            <h1>Concesionario CAECE</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="login.html">Login/registro</a></li>
+                <li><a href="gestion-clientes.html">Clientes</a></li>
+                <li><a href="visualizacion.html">Visualización</a></li>
+            </ul>
+        </nav>
+        <div class="user-session hidden">
+            <span id="userInfo"></span>
+            <button id="btnLogout" class="btn-logout">Salir</button>
+        </div>
+
+    </header>
+  <main>
+    <!-- Formulario para agregar/editar vehículo -->
+    <section class="form-section">
+      <h2>Agregar/Editar Vehículo</h2>
+      <form id="vehiculoForm">
+        <input type="hidden" id="vehiculoId">
+        <label>Marca: <input type="text" id="marca" required></label>
+        <label>Modelo: <input type="text" id="modelo" required></label>
+        <label>Año: <input type="number" id="anio" required></label>
+        <label>Precio: <input type="number" id="precio" required></label>
+        <button type="submit">Guardar</button>
+        <button type="reset">Limpiar</button>
+      </form>
+      <p id="mensajeError" class="error"></p>
+    </section>
+
+    <!-- Buscador -->
+    <section class="search-section">
+      <h2>Buscar Vehículo</h2>
+      <label><input type="text" id="buscarInput" placeholder="Buscar por marca o modelo..."></label>
+    </section>
+
+    <!-- Tabla de vehículos -->
+    <section class="table-section">
+      <h2>Lista de Vehículos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="vehiculosTable"></tbody>
+      </table>
+    </section>
+  </main>
+
+    <footer>
+        <p>&copy; 2025 Concesionario CAECE - Todos los derechos reservados.</p>
+    </footer>
+
+  <script src="gestion-vehiculos.js"></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
