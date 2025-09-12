@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("userInfo");
     const btnLogout = document.getElementById("btnLogout");
     const opcionesPrivadas = document.querySelectorAll(".requires-login");
+    const opcionesPublicas = document.querySelectorAll(".public-only");
     const loginBtn = document.getElementById("btnLogin");
 
     if (usuario) {
@@ -33,12 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       // Mostrar opciones privadas
       opcionesPrivadas.forEach(el => el.classList.remove("hidden"));
+      // Ocultar contenido publico
+      opcionesPublicas.forEach(el => el.classList.add("hidden"));
       // Ocultar botón login
       if (loginBtn) loginBtn.classList.add("hidden");
     } else {
       // Sin sesión
       if (userSession) userSession.classList.add("hidden");
       opcionesPrivadas.forEach(el => el.classList.add("hidden"));
+      opcionesPublicas.forEach(el => el.classList.remove("hidden"));
       if (loginBtn) loginBtn.classList.remove("hidden");
     }
 

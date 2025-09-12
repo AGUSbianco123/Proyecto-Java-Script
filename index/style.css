@@ -177,3 +177,26 @@ footer {
 .hidden {
   display: none !important;
 }
+
+/* IMÁGENES EN FEATURES */
+.feature img {
+    width: 100%;
+    height: 180px;             /* alto fijo para que todas se vean parejas */
+    object-fit: cover;         /* recorta la imagen sin deformarla */
+    border-radius: 8px;        /* esquinas redondeadas */
+    margin-bottom: 12px;       /* espacio con el texto */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.6); /* sombrita para destacar */
+}
+
+/* Versión responsive para imágenes de autos */
+@media (max-width: 768px) {
+  .feature img {
+    height: 140px;   /* más bajitas en tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .feature img {
+    height: 100px;   /* todavía más chicas en celulares */
+  }
+}

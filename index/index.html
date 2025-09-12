@@ -42,15 +42,33 @@
 
     <!-- CONTENIDO DESTACADO -->
     <section class="features">
-        <div class="feature">
+
+        <!-- Contenido publico (visible solo si NO hay login) -->
+        <div class="feature public-only">
+            <img src="https://www.autoplusdigital.com.ar/wp-content/uploads/2023/04/autos-2.jpg" alt="Auto deportivo">
+            <p>Descubrí nuestros modelos deportivos de alta gama.</p>
+        </div>
+        <div class="feature public-only">
+            <img src="https://assets.roughcountry.com/media/catalog/product/cache/6ac6ea22616f1e202f3f7c322b707c66/i/m/img_1393_1.jpg" alt="Camioneta">
+            <p>Comodidad y espacio para toda la familia.</p>
+        </div>
+        <div class="feature public-only">
+            <img src="https://cms-assets.autoscout24.com/uaddx06iwzdz/3XfPLS4yTOuXAxXuu6Af42/2b818e260faaf749e1767e6253c1e275/BMW-i4-2025-1.jpg?fm=webp&w=1100&fit=fill" alt="Auto sedan">
+            <p>Ideales para la ciudad y plena comodidad.</p>
+        </div>
+
+
+
+        <!-- Contenido privado (visible solo si HAY login) -->
+        <div class="feature requires-login hidden">
             <h3>Gestión de Vehículos</h3>
             <p>Agregá, modificá y eliminá vehículos del inventario.</p>
         </div>
-        <div class="feature">
+        <div class="feature requires-login hidden">
             <h3>Gestión de Clientes</h3>
             <p>Organizá la información de clientes de forma sencilla.</p>
         </div>
-        <div class="feature">
+        <div class="feature requires-login hidden">
             <h3>Reportes</h3>
             <p>Visualizá datos y estadísticas en gráficos dinámicos.</p>
         </div>
