@@ -58,7 +58,7 @@ document.getElementById("loginSection").addEventListener("submit", e => {
 
   alert("Login exitoso ✅");
   setSesion(email);
-  location.href = "index.html";
+  location.href = "../index/index.html";
 
   /* Redirigir en 2 segundos no es funcional porque solo arranca despues de tocar el boton de la alerta
   setTimeout(() => {
@@ -90,7 +90,7 @@ document.getElementById("registerSection").addEventListener("submit", e => {
   setUsuarios(usuarios);
   alert("Registro exitoso ✅");
   setSesion(email);
-  location.href = "index.html";
+  location.href = "../index/index.html";
 
   /* Redirigir en 2 segundos mismo problema que en login
   setTimeout(() => {
