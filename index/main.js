@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnLogout) {
       btnLogout.addEventListener("click", () => {
         localStorage.removeItem("usuarioActivo");
-        location.href = "index.html"; // volver al home en estado público
+        location.href = "/index/index.html"; // volver al home en estado público
       });
     }
   });
