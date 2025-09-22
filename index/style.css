@@ -200,3 +200,13 @@ footer {
     height: 100px;   /* todavía más chicas en celulares */
   }
 }
+
+.feature {
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+  background: rgba(233, 7, 7, 0.9);
+}
